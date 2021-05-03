@@ -40,4 +40,4 @@ jobs:
         uses: andreiio/deployphp-action@fix-output
         with:
           private-key: ${{ secrets.PRIVATE_KEY }}
-          dep: deploy  -v
+          dep: deploy
