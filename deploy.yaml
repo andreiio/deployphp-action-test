@@ -1,0 +1,23 @@
+import:
+  - recipe/laravel.php
+
+config:
+  application: "deployphp-action-test"
+  repository: "https://github.com/andreiio/deployphp-action-test.git"
+  remote_user: ubuntu
+  writable_use_sudo: true
+
+hosts:
+  test:
+    hostname: "test.heroesof.tech"
+    deploy_path: "/var/www/deploy-test"
+
+tasks:
+  deploy:
+    - deploy:prepare
+    - deploy:vendors
+    - artisan:storage:link
+    - deploy:publish
+
+after:
+  deploy:failed: deploy:unlock
