@@ -37,7 +37,7 @@ jobs:
         run: composer install --prefer-dist --no-interaction
 
       - name: Deploy
-        uses: andreiio/deployphp-action@add-console-colors
+        uses: andreiio/deployphp-action@fix-exit-on-error
         with:
           private-key: ${{ secrets.PRIVATE_KEY }}
           dep: deploy
